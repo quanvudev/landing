@@ -1,5 +1,8 @@
 FROM oven/bun:1 AS base
 
+# Install Python
+RUN apt-get update && apt-get install -y python3
+
 FROM base AS build
 WORKDIR /usr/src/app
 COPY . .
@@ -7,7 +10,7 @@ COPY .env.example .env
 RUN bun install
 RUN bun run build
 
-FROM oven/bun:1 AS production
+FROM base AS production
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/.output .output
 COPY --from=build /usr/src/app/.env .env
