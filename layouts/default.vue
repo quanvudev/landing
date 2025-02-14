@@ -31,7 +31,12 @@ useHead({
 
 <template>
   <div class="dark:bg-gray-900/90">
-    <LayoutHeader />
+    <LayoutHeader
+      :logo="{
+        light: getStrapiURL(data?.logoLight.url),
+        dark: getStrapiURL(data?.logoDark.url),
+      }"
+    />
     <slot />
     <UDivider />
     <LayoutFooter />

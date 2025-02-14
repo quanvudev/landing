@@ -68,4 +68,7 @@ export default defineNuxtConfig({
   },
   strapi: {
   },
+  nitro: {
+    preset: 'bun',
+  },
 })

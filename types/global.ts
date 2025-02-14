@@ -10,6 +10,8 @@ export interface StrapiGlobal {
   publishedAt: string
   favicon: Favicon
   defaultSeo: DefaultSeo
+  logoLight: Favicon
+  logoDark: Favicon
 }
 
 export interface DefaultSeo {
