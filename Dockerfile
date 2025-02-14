@@ -1,7 +1,7 @@
 FROM oven/bun:1 AS base
 
-# Install Python
-RUN apt-get update && apt-get install -y python3
+# Install Python and build-essential
+RUN apt-get update && apt-get install -y python3 build-essential
 
 FROM base AS build
 WORKDIR /usr/src/app
