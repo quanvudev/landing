@@ -1,0 +1,32 @@
+{
+  "common": {
+    "nav": {
+      "home": "Trang chủ",
+      "about_us": "Về chúng tôi",
+      "project": "Dự án",
+      "contact": "Liên hệ"
+    },
+    "footer": {
+      "who_we_are": "Chúng tôi là ai?",
+      "what_we_do": "Chúng tôi làm gì?",
+      "contact_us": "Liên hệ",
+      "address": "Địa chỉ",
+      "phone": "Điện thoại",
+      "email": "Email",
+      "follow_us": "Theo dõi chúng tôi"
+    }
+  },
+  "index": {
+    "title": "Trang chủ",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "section": {
+      "our_business": "Lĩnh vực kinh doanh",
+      "our_projects": "Dự án của chúng tôi",
+      "detail_project": "Chi tiết dự án",
+      "client": "Đối tác",
+      "project": "Dự án",
+      "view_our_project": "Xem dự án của chúng tôi",
+      "view_our_client": "Xem đối tác của chúng tôi"
+    }
+  }
+}

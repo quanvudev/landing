@@ -1,0 +1,32 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about_us": "About",
+      "project": "Projects",
+      "contact": "Contact"
+    },
+    "footer": {
+      "who_we_are": "Who we are?",
+      "what_we_do": "What we do?",
+      "contact_us": "Contact us",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "follow_us": "Follow us"
+    }
+  },
+  "index": {
+    "title": "Home",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "section": {
+      "our_business": "Our Business",
+      "our_projects": "Our Projects",
+      "detail_project": "Detail Project",
+      "client": "Clients",
+      "project": "Projects",
+      "view_our_project": "View our projects",
+      "view_our_client": "View our clients"
+    }
+  }
+}
