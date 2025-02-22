@@ -29,7 +29,7 @@ const currentLocale = computed(() => {
         <NuxtImg :src="logo.dark" alt="Logo" class="hidden dark:block h-5" />
       </NuxtLinkLocale>
 
-      <LayoutDrawer />
+      <LayoutDrawer :links="links ?? []" />
       <div class="ml-auto hidden md:flex">
         <UHorizontalNavigation :links="links" />
         <div class="flex h-fit my-auto min-w-fit">

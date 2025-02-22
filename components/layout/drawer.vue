@@ -1,15 +1,17 @@
 <script setup lang="ts">
+const props = defineProps<{
+  links: {
+    label: string
+    to: string
+  }[]
+}>()
 const open = ref(false)
-
 function toggle() {
   open.value = !open.value
 }
-const {
-  links,
-} = useNavigation()
 
 const withClickLinks = computed(() => {
-  return links.value.map((link) => {
+  return props.links.map((link) => {
     return {
       ...link,
       click: () => {
@@ -17,6 +19,15 @@ const withClickLinks = computed(() => {
       },
     }
   })
+})
+
+const {
+  availableLocales,
+  locale,
+} = useNavigation()
+
+const currentLocale = computed(() => {
+  return availableLocales.value.find(x => x.code === locale.value)
 })
 </script>
 
@@ -36,9 +47,21 @@ const withClickLinks = computed(() => {
             />
           </div>
         </template>
-        <UVerticalNavigation
-          :links="withClickLinks"
-        />
+        <UVerticalNavigation :links="withClickLinks" />
+        <div class="flex flex-col">
+          <UDropdown
+            :items="[availableLocales]" :ui="{
+              width: 'w-full max-w-sm',
+            }"
+          >
+            <UButton variant="ghost" size="sm" class="w-full">
+              {{ currentLocale?.label }}
+            </UButton>
+          </UDropdown>
+          <ClientOnly>
+            <LayoutColorMode />
+          </ClientOnly>
+        </div>
       </UCard>
     </USlideover>
   </div>

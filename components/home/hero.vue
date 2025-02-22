@@ -8,6 +8,6 @@ defineProps<{
 
 <template>
   <div class="w-screen" data-allow-mismatch="true">
-    <video :src="getStrapiURL(source?.url)" autoplay muted playsinline webkit-playsinline loop class="h-full" />
+    <video :src="getStrapiURL(source?.url)" autoplay muted playsinline webkit-playsinline loop />
   </div>
 </template>
