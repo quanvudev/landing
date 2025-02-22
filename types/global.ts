@@ -12,6 +12,9 @@ export interface StrapiGlobal {
   defaultSeo: DefaultSeo
   logoLight: Favicon
   logoDark: Favicon
+  footer: string
+  columns: Column[]
+  allRightsReserved: string
 }
 
 export interface DefaultSeo {
@@ -40,4 +43,44 @@ export interface Favicon {
   createdAt: string
   updatedAt: string
   publishedAt: string
+}
+
+export interface Column {
+  id: number
+  title: string
+  children: Children[]
+}
+
+export interface Children {
+  id: number
+  title: string
+  url: string
+  icon?: Icon
+}
+
+export interface Icon {
+  id: number
+  documentId: string
+  name: string
+  alternativeText: any
+  caption: any
+  width: number
+  height: number
+  formats: any
+  hash: string
+  ext: string
+  mime: string
+  size: number
+  url: string
+  previewUrl: any
+  provider: string
+  provider_metadata: ProviderMetadata
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}
+
+export interface ProviderMetadata {
+  public_id: string
+  resource_type: string
 }

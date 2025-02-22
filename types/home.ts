@@ -10,6 +10,8 @@ export interface StrapiHomePage {
   heroHighlight: HeroHighlight
   localizations: Localization[]
   highlightSections: Section[]
+  achievement: string
+  counter: Counter[]
 }
 
 export interface Localization {
@@ -108,4 +110,13 @@ export interface Section {
   caption: string
   path: string
   pathLabel: string
+}
+
+export interface Counter {
+  id: number
+  value: number
+  label: string
+  symbol: string
+  url: string
+  labelUrl: string
 }

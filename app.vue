@@ -4,6 +4,8 @@ config.ui.primary = 'brand'
 </script>
 
 <template>
+  <NuxtLoadingIndicator />
+
   <NuxtLayout name="default">
     <NuxtErrorBoundary>
       <NuxtPage />
@@ -12,6 +14,11 @@ config.ui.primary = 'brand'
       </template>
     </NuxtErrorBoundary>
   </NuxtLayout>
+  <UNotifications
+    :ui="{
+      position: 'top-0 right-0 bottom-[unset]',
+    }"
+  />
 </template>
 
 <style>
@@ -23,18 +30,22 @@ body * {
   font-optical-sizing: auto;
   --header-height: 4rem;
 }
+
 .layout-enter-active,
 .layout-leave-active {
   transition: all 0.4s;
 }
+
 .layout-enter-from,
 .layout-leave-to {
   filter: grayscale(1);
 }
+
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;

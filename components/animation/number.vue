@@ -5,6 +5,8 @@ import { onMounted, reactive, ref } from 'vue'
 const props = defineProps<{
   max: number
   start?: number
+  // Optional duration prop with a default value of 3s
+  duration?: number
 }>()
 
 const state = reactive({
@@ -16,7 +18,7 @@ const elementRef = ref<HTMLElement | null>(null)
 function startAnimation() {
   gsap.to(state, {
     num: props.max,
-    duration: 3,
+    duration: props.duration ?? 3,
     ease: 'power4.out',
     stagger: 1,
     onUpdate: () => {

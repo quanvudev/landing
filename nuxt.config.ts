@@ -63,6 +63,7 @@ export default defineNuxtConfig({
     public: {
       strapi: {
         url: process.env.STRAPI_URL,
+        apiToken: process.env.STRAPI_API_KEY,
       },
     },
   },

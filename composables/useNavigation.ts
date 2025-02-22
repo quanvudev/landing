@@ -1,7 +1,7 @@
 export function useNavigation() {
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
-  const { t, locale, locales } = useI18n()
+  const { locale, locales } = useI18n()
 
   const availableLocales = computed(() =>
     locales.value.map(x => ({
@@ -14,12 +14,5 @@ export function useNavigation() {
     })),
   )
 
-  const links = computed(() => [
-    { label: t('common.nav.home'), to: localePath('/') },
-    { label: t('common.nav.about_us'), to: localePath('/about-us') },
-    { label: t('common.nav.project'), to: localePath('/project') },
-    { label: t('common.nav.contact'), to: localePath('/contact') },
-  ])
-
-  return { links, availableLocales, locale, locales }
+  return { availableLocales, locale, locales, localePath }
 }

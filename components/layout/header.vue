@@ -4,12 +4,16 @@ defineProps<{
     light?: string
     dark?: string
   }
+  links?: {
+    label: string
+    to: string
+  }[]
 }>()
 const {
-  links,
   availableLocales,
   locale,
 } = useNavigation()
+
 const currentLocale = computed(() => {
   return availableLocales.value.find(x => x.code === locale.value)
 })

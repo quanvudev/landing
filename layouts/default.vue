@@ -1,12 +1,31 @@
 <script lang="ts" setup>
 import type { StrapiGlobal } from '~/types/global'
+import type { Navbar } from '~/types/navbar'
 
 const { $strapi } = useNuxtApp()
 
+const {
+  locale,
+  localePath,
+} = useNavigation()
 const { data } = await useAsyncData('Global', () => $strapi.findOne<StrapiGlobal>('global', {
-  populate: '*',
-}).then(r => r.data))
+  populate: ['logoLight', 'logoDark', 'favicon', 'columns.children.icon', 'defaultSeo'],
+  locale: locale.value,
+}).then(r => r.data), {
+  watch: [locale],
+})
+const { data: dataLinks } = await useAsyncData('Navbars', () => $strapi.find<Navbar>('navbars', {
+  locale: locale.value,
+}).then(r => r.data), {
+  watch: [locale],
+})
 
+const links = computed(() => {
+  return (dataLinks.value ?? []).map(x => ({
+    label: x.title,
+    to: localePath(x.url),
+  }))
+})
 useHead({
   meta: [
     {
@@ -33,12 +52,12 @@ useHead({
   <div class="dark:bg-gray-900/90">
     <LayoutHeader
       :logo="{
-        light: getStrapiURL(data?.logoLight.url),
-        dark: getStrapiURL(data?.logoDark.url),
-      }"
+        light: getStrapiURL(data?.logoLight?.url),
+        dark: getStrapiURL(data?.logoDark?.url),
+      }" :links="links"
     />
     <slot />
     <UDivider />
-    <LayoutFooter />
+    <LayoutFooter :content="data?.footer" :cols="data?.columns" :all-rights-reserved="data?.allRightsReserved" />
   </div>
 </template>
