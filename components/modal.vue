@@ -9,6 +9,11 @@ const isOpen = ref(false)
 function toggle() {
   isOpen.value = !isOpen.value
 }
+
+defineExpose({
+  toggle,
+  isOpen,
+})
 </script>
 
 <template>

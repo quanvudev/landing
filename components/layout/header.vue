@@ -25,8 +25,8 @@ const currentLocale = computed(() => {
   >
     <nav class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex items-center justify-between gap-3 h-[--header-height]">
       <NuxtLinkLocale to="/" class="flex items-center">
-        <NuxtImg :src="logo.light" alt="Logo" class="dark:hidden h-5" />
-        <NuxtImg :src="logo.dark" alt="Logo" class="hidden dark:block h-5" />
+        <NuxtImg :src="logo.light" alt="Logo" class="dark:hidden h-8" />
+        <NuxtImg :src="logo.dark" alt="Logo" class="hidden dark:block h-8" />
       </NuxtLinkLocale>
 
       <LayoutDrawer :links="links ?? []" />

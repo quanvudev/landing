@@ -1,13 +1,23 @@
 <script lang="ts" setup>
+import type { Modal } from '#components'
 import type { Project } from '~/types/project'
 
-defineProps<{
+const props = defineProps<{
   source: Project
 }>()
+const modalRef = ref<InstanceType<typeof Modal> | null>()
+const route = useRoute()
+
+onMounted(() => {
+  if (route.query.slug === props.source.slug) {
+    modalRef.value?.toggle()
+  }
+})
 </script>
 
 <template>
   <Modal
+    ref="modalRef"
     overlay transition :ui="{
       width: 'sm:max-w-screen-xl',
     }"

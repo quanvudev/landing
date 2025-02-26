@@ -43,7 +43,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex flex-col lg:flex-row gap-4 md:gap-8 flex-wrap">
-        <UButton v-for="c of (counter ?? [])" :key="c.id" variant="soft" size="xl" class="flex items-center justify-center" trailing-icon="i-material-symbols:arrow-right-alt-rounded" :to="c.url">
+        <UButton v-for="c of (counter ?? [])" :key="c.id" variant="soft" size="xl" class="flex items-center justify-center" trailing-icon="i-material-symbols:arrow-right-alt-rounded" :to="$localePath(c.url)">
           {{ c.labelUrl }}
         </UButton>
       </div>
@@ -62,7 +62,7 @@ onMounted(() => {
           <div class="px-4">
             <div class="all-initial prose" v-html="item.shortDesc" />
           </div>
-          <UButton class="mt-auto" :to="$localePath(`/project/${item.slug}`)" variant="ghost" size="xl" trailing-icon="i-material-symbols:arrow-right-alt-rounded">
+          <UButton class="mt-auto" :to="$localePath(`/projects?slug=${item.slug}`)" variant="ghost" size="xl" trailing-icon="i-material-symbols:arrow-right-alt-rounded">
             {{ $t("index.section.detail_project") }}
           </UButton>
           <div class="h-4" />

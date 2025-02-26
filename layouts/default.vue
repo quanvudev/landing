@@ -26,6 +26,7 @@ const links = computed(() => {
     to: localePath(x.url),
   }))
 })
+
 useHead({
   meta: [
     {
